@@ -1,0 +1,9 @@
+ax.plot(
+    [x],
+    [y],
+    marker="o",
+    linestyle="-",
+    color="black",
+    linewidth=2,
+    markersize=6
+)

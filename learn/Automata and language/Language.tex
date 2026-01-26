@@ -1,0 +1,106 @@
+\documentclass[a4paper, 11pt, titlepage]{article}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{amsmath}
+
+
+\begin{document}
+\title{Language, Alphabet, Symbol, String}
+\author{Kaiming Tao}
+\date{July 11, 2019}
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\setlength{\parindent}{0cm}
+
+\section{The general question}
+
+``Given some string \textit{s} and some language \textit{L}, is {\itshape s} in {\itshape L}?''
+
+\section{String}
+
+\begin{itemize}
+    \item \textbf{alphabet}  $ \Sigma $, is a finite set
+    \item \textbf{symbols} \& \textbf{characters}, elements of an alphabet
+    \item \textbf{string}, a finite sequance of symbols, could be empty.
+    \item All possible strings, $ \Sigma^*$, \href{https://en.wikipedia.org/wiki/Kleene_star}{(Kleene star)}
+\end{itemize}
+
+\subsection{Operations on String}
+
+\subsubsection{length}
+
+$ \lvert s\rvert $, number of symbols in \textit{s}.
+
+$ \lvert \varepsilon \rvert = 0 $ 
+
+\subsubsection{number of the symbol}
+
+$ \#_c(s) $, number of times the symbol \textit{c} occurs in \textit{s}
+
+\subsubsection{concatenation}
+
+\begin{itemize}
+    \item $ s \lvert\rvert t $ or $st$
+    \item $ \lvert s \lvert + \lvert t \lvert = \lvert st \lvert $
+    \item $ \forall x (x \varepsilon = \varepsilon x = x)  $
+    \item Concatenation is \textbf{associative}, $ \forall s, t, w  ((st)w = s(tw)) $
+\end{itemize}
+
+\subsubsection{replication}
+
+For each string \textit{w} and for each integer \textit{i}
+
+\begin{itemize}
+    \item $ w^0 = \varepsilon $
+    \item $ w^{i+1} = w^i w $
+\end{itemize}
+
+\subsubsection{reversal}
+
+\begin{itemize}
+    \item If $ \rvert w \rvert = 0$ then $ w^R = w = \varepsilon $
+    \item If  $ \rvert w \rvert \geq 0$ then $ \exists a \in \Sigma (\exists u \in \Sigma^* (w = ua)) $ Then define $ w^R = a u^R $
+    
+\end{itemize}
+
+\subsection{Concatenation and Reverse of Strings}
+
+\textbf{Theorem}: If $w$ and $x$ are strings, then $ (wx)^R = x^R w^R $
+
+\textbf{Proof}: Proof is using \emph{induction}
+
+Base Case: $ \rvert x \rvert = 0 $. Then $ x = \varepsilon $, and 
+
+\begin{align*}
+(wx)^R &= w^R \\
+       &= \varepsilon w^R \\
+       &= \varepsilon^R w^R  \\
+       &= x^R w^R
+\end{align*}
+
+Prove: 
+\begin{align*}
+\forall n \geq 0 ( \\
+    &((\rvert x \rvert = n) \to ((wx)^R = x^R w^R)) \\
+    &\to \\
+    &((\rvert x \rvert = n + 1) \to ((wx)^R = x^R w^R)) \\
+    &)
+\end{align*}
+
+Consider for any string x, where $ \rvert x \rvert = n + 1 $,
+$ x = ua, a \in \Sigma , \rvert u \rvert = 0$
+
+\begin{align*}
+(wx)^R  &= (w(ua))^R \\
+        &= ((wu)a)^R \\
+        &= a(wu)^R \\
+        &= a(u^Rw^R) \\
+        &= (au^R)w^R \\
+        &= (ua)^Rw^R \\
+        &= x^Rw^R
+\end{align*}
+
+\end{document}

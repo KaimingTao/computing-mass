@@ -1,0 +1,14 @@
+all
+any
+exist
+find
+isempty
+isequal
+isfinite
+isinf
+islogical
+isnan
+isnumeric
+isieee
+issparse
+xor

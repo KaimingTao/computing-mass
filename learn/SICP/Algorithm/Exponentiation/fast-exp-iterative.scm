@@ -1,0 +1,20 @@
+(define (even? n)
+    (= (remainder n 2) 0)
+)
+(define (square x) (* x x))
+
+(define (exp b n)
+    (define (iter x y m)
+        (cond
+            ((= m 0) x)
+            ((even? m)
+                (iter x (square y) (/ m 2))
+            )
+            (else
+                (iter (* x y) y (- m 1))    
+            )
+        )
+    )
+    (iter 1 b n)
+)
+(exp 2 1)
